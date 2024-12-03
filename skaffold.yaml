@@ -1,0 +1,17 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+metadata:
+  name: luxe-ecommerce
+build:
+  artifacts:
+  - image: luxe-ecommerce
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl: 
+    manifests:
+    - k8s/deployment.yaml
+    - k8s/service.yaml
+    - k8s/configmap.yaml
+    - k8s/ingress.yaml
+    - k8s/hpa.yaml
